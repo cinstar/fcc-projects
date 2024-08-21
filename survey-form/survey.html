@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Who are you?</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title">who are you?</h1>
+    <p id="description">please fill out this questionnaire to tell me more about the type of person you are.</p>
+    <form id="survey-form">
+      <fieldset>
+        <legend> basic information </legend>
+        <label for="name" id="name-label">name: <input id="name" type="text" required placeholder="first and last"></input></label>
+        <label for="email" id="email-label">email: <input id="email" type="email" required placeholder="xxx@thisform.org"></input></label>
+        <label for="number" id="number-label">age: <input id="number" type="number" min="15" max="25" required placeholder="15"></input></label>
+        <label>birthday: <input placeholder="mm/dd/yyyy"></input></label>
+        <label>mbti personality type: <input placeholder="istg ;)"></input></label>
+      </fieldset>
+      <fieldset>
+        <legend> favorites </legend>
+        <label> coffee roast: 
+          <input type="checkbox" value="roast-light">light</input>
+          <input type="checkbox" value="roast-medium">medium</input>
+          <input type="checkbox" value="roast-dark">dark</input>
+        </label>
+        <label> painkiller: 
+          <input type="checkbox" value="tylenol">tylenol</input>
+          <input type="checkbox" value="advil">advil</input>
+          <input type="checkbox" value="?">?</input>
+        </label>
+        <label> color clothing: 
+          <input type="checkbox" value="primary-colors">primary colors</input>
+          <input type="checkbox" value="pure-black">pure black</input>
+          <input type="checkbox" value="neutrals">neutrals</input>
+        </label>
+        <label> animal: 
+          <input placeholder="penguin"></input>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend> would you rather? </legend>
+        <label id="hair"> 1. 
+          <input type="radio" name="hair-type" value="pixie-cut">pixie cut</input>
+          <input type="radio" name="hair-type" value="no-change-hair">never change your hair again</input>
+        </label>
+        <label id="friends"> 2. 
+          <input type="radio" name="friends-kind" value="friend-quantity">high quantity of friends</input>
+          <input type="radio" name="friends-kind" value="friend-quality">high quality friends</input>
+        </label>
+        <label id="powers"> 3. 
+          <input type="radio" name="power-type" value="imagination">huge imagination</input>
+          <input type="radio" name="power-type" value="mem">photographic memory</input>
+        </label>
+        <label id="emotions"> 4. 
+          <input type="radio" name="emotion-choice" value="no-ragrets">never regret</input>
+          <input type="radio" name="emotion-choice" value="no-sad">never feel sad</input>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend> more about you </legend>
+        <label> your aesthetic: 
+          <select id="dropdown">
+            <option value="">(select one)</option>
+            <option value="1">grunge</option>
+            <option value="2">cottagecore</option>
+            <option value="3">bay area tech dad</option>
+            <option value="4">minimalist</option>
+            <option value="5">other</option>
+          </select>
+        </label>
+        <label> a song to describe your life:
+          <input placeholder="Times Like These - Eden Project"> </input>
+        </label>
+        <label> (optional) upload an mp3:
+          <input type="file"></input>
+        </label>
+        <label>analyze a recent dream:
+          <textarea rows="3" cols="30" placeholder="I made fried rice because I missed my mama."></textarea>
+        </label>
+      </fieldset>
+      <fieldset>
+        <input type="submit" value="Submit" id="submit"></input>
+      </fieldset>
+    </form>
+  </body>
+</html>
