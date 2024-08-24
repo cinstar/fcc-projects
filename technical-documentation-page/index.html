@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CSS Docs</title>
+    <link rel="stylesheet" href="styles.css"/>
+  </head>
+  <body>
+        <main id="main-doc">
+        <section class="main-section" id="Introduction">
+            <header>Introduction</header>
+            <article>
+                <p>Cascading Style Sheets (CSS) is a language for writing style sheets, commonly used to describe how HTML documents should be rendered on screen, paper, speech, or other media. By separating content from design, CSS allows developers to apply styles—such as colors, fonts, and layouts—consistently across multiple pages. This separation enhances both the efficiency and maintainability of web design. More specifically:</p>
+                <ul>
+                    <li>A <b>style sheet</b> is a set of rules that specify the presentation of a document. Style sheets are written by an <i>Author</i> (developer), and interpreted by a <i>User-Agent</i> (browser), to present the document to the <i>User</i> (person using the website). For instance, I wrote a <code>styles.css</code> file to apply to this site and gave it to Chrome. It then applies my specified theme and presents the stylized page to you. For precise definitions, please visit the World Wide Web Consortium (W3C) <a href="https://www.w3.org/TR/css/#css-glossary" class="reference">specification</a>.</li>
+                    <li>Styles are applied to the source document in <b>HTML</b> or <b>XML</b> (or XML dialects).</li>
+                    <li>A <b>cascade algorithm</b> determines what style to apply to an element. It takes input from multiple stylesheets, including ones from the User-Agent (i.e. default browser settings), the Author, and the User. For each element on the HTML document, it gathers the rules written for that element and computes the precedence of each rule. It finally applies the highest-precedence rule to the element.</li>
+                </ul>
+                <p>Beyond custom website themes, CSS offers powerful features like media queries for responsive design and flexbox or grid layouts for complex arrangements. It is among the core languages of the open web and is standardized across Web browsers. Thus, mastering CSS is essential for creating visually appealing and user-friendly websites.</p>
+                
+            </article>
+        </section>
+        <section class="main-section" id="Maintenance">
+            <header>Maintenance</header>
+            <article>
+                <p>CSS is maintained by the <a href="https://www.toptal.com/css/why-you-need-a-css-developer#:~:text=World%20Wide%20Web%20Consortium%20(W3C" class="reference">W3C</a>. Previously, its modules were developed synchronously, which allowed versioning (see: CSS1, CSS2.1). As progress on different modules began to vary, W3C shifted to releasing <a href="https://www.w3.org/Style/CSS/current-work" class="reference">separate recommendations for each module</a>. Now, the modules have individual versions instead of the language as a whole, such as “CSS Color Module 5.” W3C publishes a “snapshot” of the <a href="https://www.w3.org/TR/css/" class="reference">latest stable state</a> of the specification at regular intervals.</p>
+            </article>
+        </section>
+        <section class="main-section" id="What_you_should_already_know">
+            <header>What you should already know</header>
+            <article>
+                <p>This guide assumes you have the following basic background:</p>
+                <ul>
+                    <li>A general understanding of the Internet and the World Wide Web (WWW).</li>
+                    <li>Good working knowledge of HyperText Markup Language (HTML)</li>
+                    <li>Some programming experience. If you are new to programming, you can begin practicing on <a href="https://www.freecodecamp.org/learn/" class="reference">freeCodeCamp</a>.</li>
+                </ul>
+            </article>
+        </section>
+        <section class="main-section" id="Basic_rule_syntax">
+            <header>Basic rule syntax</header>
+            <article>
+                <h2 class="subheading">The building blocks of CSS statements include declarations, selectors, and at-rules.</h2>
+                <h2>Declarations</h2>
+                    <p>Setting CSS properties to specific values is the core function of the CSS language. A property and value pair is called a declaration, and any CSS engine calculates which declarations to apply to every element on the webpage.</p>
+                    <p>Both properties and values are case-insensitive by default in CSS. The pair is separated by a colon, as shown below.</p>
+                    <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax/css_syntax_-_declaration.png" alt="The colon separates the property and value in a CSS declaration."/>
+                    <p>There are hundreds of different properties and an endless number of values. Some combinations may be deemed invalid and thus ignored.</p>
+                    <p>For example, the following is an invalid declaration, so the CSS engine will not apply this rule:</p>
+                    <div class="code-example">
+                        <code>background-color: zero; /* invalid value */</code>
+                    </div>
+                <h2>Rulesets</h2>
+                    <p>Group declarations by using curly braces to create <b>declaration blocks</b>. To specify the elements that the block of rules applies to, we add a list of <a>selectors</a>—which are conditions selecting some elements of the page—to the beginning. This forms a CSS ruleset.</p>
+                    <img src="https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax/ruleset.png" alt="A group of selectors is placed before the declaration block to indicate which elements the styles apply to."/>
+                    <p>As an element of the page may be matched by several selectors, and therefore by several rules potentially containing a given property several times, with different values, the CSS standard defines which one has precedence over the other and must be applied: <i>the cascade algorithm.</i></p>
+                    <p><b>Note:</b> If one selector is invalid, the entire ruleset is ignored.</p>
+                <h2>Statements</h2>
+                    <p>There are two kinds of statements:</p>
+                    <ul>
+                        <li><b>Rulesets</b> that associate a collection of CSS declarations to a condition described by a selector.</li>
+                        <li><b>At-rules</b>At-rules that start with an 'at' sign, '@', followed by an identifier, and then continuing up to the end of the statement. Each type is defined by the identifier, and may vary in internal syntax. They are used to convey meta-data information (like @layer or @import), conditional information (like @media or @document), or descriptive information (like @font-face).</li>
+                    </ul>
+                    <p>Rulesets may be nested in a conditional at-rule:</p>
+                    <div class="code-example">
+                        <code>@media (max-width: 700px) { /* nested rulesets */ }</code>
+                    </div>
+            </article>
+        </section>
+        <section class="main-section" id="Selectors">
+            <header>Selectors</header>
+            <article>
+                <p>Basic HTML element types can be selected, along with user-defined ids, classes, and attributes. IDs are referenced with a hashtag ‘#’ in front of the identifier, while class selectors are constructed using a period ‘.’ in the beginning. Attribute selectors follow the format “[attr=value]”. The universal selector, ‘*’, selects all the elements on the page.</p>
+                <p>Examples of my favorite selectors so far include:</p>
+                <ul>
+                    <li>The <code>span[class~="sr-only"]</code> attribute selector specifies only span elements whose class includes "sr-only."</li>
+                    <li>The <code>:first-of-type</code> pseudo-selector is used to target the first element that matches the selector.</li>
+                    <li>The <code>:nth-of-type(number here)</code> pseudo-selector is used to target specific elements based on their order among siblings of the same type.</li>
+                    <li><code>:hover</code> = hover effect.</li>
+                    <li>With the descendant selector <code>.class descendant</code>, elements matched by the second selector are selected if they have an ancestor (parent, parent's parent, parent's parent's parent, etc.) element matching the first selector.</li>
+                </ul>
+                <p>For an exhaustive list, please visit <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors#reference">the corresponding MDN site</a>.</p>
+            </article>
+        </section>
+        <section class="main-section" id="Properties">
+            <header>Properties</header>
+            <article>
+                <p>There are hundreds of CSS properties. Here are my favorites:</p>
+                <ul>
+                    <li>The <code>position</code> property determines the position of the element on the page. The different positions include:
+                        <ul>
+                            <li><code>static:</code> default flow of elements onto page</li>
+                            <li><code>relative:</code> follows default flow, but activates <code>top, left,</code> etc properties</li>
+                            <li><code>absolute:</code> removed from normal document flow but positioned according to nearest <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block">containing block</a></li>
+                            <li><code>fixed:</code> same as absolute but fixed according to viewport</li>
+                            <li><code>sticky:</code> toggles between relative and fixed, depending on the scroll position, like the “freeze view” in Google Sheets.</li>
+                        </ul>
+                    </li>
+                    <li>The <code>transform</code> property allows you to modify the shape, position, and size of an element without changing the layout or affecting the surrounding elements. It has functions such as <code>translate(), rotate(), scale(), skew(), and matrix()</code>. For example, the following rule rotates the box by -45 degrees:</li>
+                    <div class="code-example">
+                        <code>.box { transform: rotate(-45deg) }</code>
+                    </div>
+                    <li>Setting the <code>overflow</code> property to <code>hidden</code> effectively hides any sub-element that is pushed outside the set width of the object.</li>
+                </ul>
+                <p>For an exhaustive list, please visit <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">the corresponding MDN site</a>.</p> 
+            </article>
+        </section>
+        <section class="main-section" id="References">
+            <header>References</header>
+            <article>
+                <p>The documentation and information on this page are taken from <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">MDN</a>, <a href="https://www.freecodecamp.org/learn">freeCodeCamp</a>, and <a href="https://www.w3.org/Style/CSS/Overview.en.html">W3C</a>.</p>
+            </article>
+        </section>
+    </main>
+    <nav id="navbar">
+        <header>CSS Documentation</header>
+        <ul>
+            <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+            <li><a class="nav-link" href="#Maintenance">Maintenance</a></li>
+            <li><a class="nav-link" href="#What_you_should_already_know">What you should already know</a></li>
+            <li><a class="nav-link" href="#Basic_rule_syntax">Basic rule syntax</a></li>
+            <li><a class="nav-link" href="#Selectors">Selectors</a></li>
+            <li><a class="nav-link" href="#Properties">Properties</a></li>
+            <li><a class="nav-link" href="#References">References</a></li>
+        </ul>
+    </nav>
+  </body>
+  
+</html>
